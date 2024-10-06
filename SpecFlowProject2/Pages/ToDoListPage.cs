@@ -26,7 +26,12 @@ namespace SpecFlowProject2.Pages
         {
             driver = driver_;
         }
-       
+        public void initializeDriver()
+        {
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+        }
         public void GotoPage()
         {
             driver.Url = url;

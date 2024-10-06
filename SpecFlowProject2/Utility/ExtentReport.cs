@@ -15,11 +15,7 @@ namespace SpecFlowProject2.Utility
         public static ExtentTest _feature;
         public static ExtentTest _scenario;
         public static String dir = AppDomain.CurrentDomain.BaseDirectory;
-        /*public static String testResultPath = dir.Substring(0, dir.LastIndexOf("bin"));
-        public static string projectPath = new Uri(testResultPath).LocalPath;
-        public static string reportPath = projectPath + "Reports\\TestRunReport.html";*/
         public static String testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
-        //public static String testResultPath = @"C:\\Users\\swatim\\source\\repos\\OpenApmAPIAutomation\\OpenApmAPIAutomation\\TestResults\\Report.html";
        
         public static void InitializeReport()
         {

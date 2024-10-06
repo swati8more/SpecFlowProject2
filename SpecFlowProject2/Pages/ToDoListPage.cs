@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using SpecFlowProject2.Utility;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace SpecFlowProject2.Pages
 {
     internal class ToDoListPage
     {
-        IWebDriver driver;
-        String url = "https://todomvc.com/examples/react/dist/#/";
+        public IWebDriver driver;
+        private const String url = "https://todomvc.com/examples/react/dist/#/";
         private readonly By addTask = By.Id("todo-input");
         private readonly By viewTask = By.XPath("//*[@data-testid='todo-item-label']");
         private readonly By completedLink = By.XPath("//*[@href='#/completed']");
@@ -21,17 +22,11 @@ namespace SpecFlowProject2.Pages
         private readonly By toDoItems = By.XPath("//*[@class='todo-count']");
         private readonly By activeTasks = By.XPath("//*[@href='#/active']");
 
-
-        public ToDoListPage(IWebDriver driver)
+        public ToDoListPage(IWebDriver driver_)
         {
-            this.driver = driver;
+            driver = driver_;
         }
-        /*public void initializeDriver()
-        {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-        }*/
+       
         public void GotoPage()
         {
             driver.Url = url;

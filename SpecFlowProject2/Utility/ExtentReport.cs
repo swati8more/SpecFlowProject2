@@ -32,7 +32,7 @@ namespace SpecFlowProject2.Utility
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
             string screenshotLocation = Path.Combine(testResultPath, scenarioContext.ScenarioInfo.Title + ".png");
-            screenshot.SaveAsFile(screenshotLocation);
+            screenshot.SaveAsFile(string.Format(screenshotLocation + "{0}.png"));
             return screenshotLocation;
         }
        

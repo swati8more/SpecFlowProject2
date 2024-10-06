@@ -1,7 +1,6 @@
 using NUnit.Framework;
+using OpenQA.Selenium;
 using SpecFlowProject2.Pages;
-using SpecFlowProject2.Specs.Drivers;
-using System.Threading.Tasks;
 
 namespace SpecFlowProject2.StepDefinitions
 {
@@ -9,9 +8,10 @@ namespace SpecFlowProject2.StepDefinitions
     public class ToDoListStepDefinitions
     {
         private readonly ToDoListPage _toDoListPageObject;
-        public ToDoListStepDefinitions(BrowserDriver browserDriver)
+        
+        public ToDoListStepDefinitions(IWebDriver driver)
         {
-            _toDoListPageObject = new ToDoListPage(browserDriver.Current);
+            _toDoListPageObject = new ToDoListPage(driver);
         }
 
         [Given(@"User opens the page in browser")]

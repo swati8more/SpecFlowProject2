@@ -3,24 +3,17 @@ using AventStack.ExtentReports;
 using BoDi;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using SpecFlowProject2.Specs.Drivers;
 using TechTalk.SpecFlow;
 using SpecFlowProject2.Utility;
 
 namespace SpecFlowProject2.Specs.Hooks
 {
     [Binding]
-    public class SharedBrowserHooks : ExtentReport
+    public class SharedHooks : ExtentReport
     {
-        [BeforeTestRun]
-        public static void BeforeTestRun(ObjectContainer testThreadContainer)
-        {
-            //Initialize a shared BrowserDriver in the global container
-            testThreadContainer.BaseContainer.Resolve<BrowserDriver>();
-        }
         private readonly IObjectContainer _container;
 
-        public SharedBrowserHooks(IObjectContainer container)
+        public SharedHooks(IObjectContainer container)
         {
             _container = container;
         }
@@ -40,7 +33,6 @@ namespace SpecFlowProject2.Specs.Hooks
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
         {
-
             _feature = extent.CreateTest<Feature>(featureContext.FeatureInfo.Title);
         }
 
